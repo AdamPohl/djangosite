@@ -1,0 +1,16 @@
+{% extends 'polls/base.html' %}
+
+{% block content %}
+
+
+    <form action="/make_form/" method="POST">{% csrf_token %}
+        <h3>Name of new webform:</h3>
+        <input type="text" name="form_name" value="" id="form_name">
+        <h3>What is this webform going to be about?</h3>
+        <textarea name="description" valuer="" id="description" cols="40" rows="10">Please enter webform description here</textarea>
+        <br>
+        <input type="submit" value="Generate webform" />
+
+    </form>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<html>
+    <head>
+
+        <title>The Webform Genterator</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/webform.css' %}">
+        <link href="http://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+    </head>
+    <body>
+
+        <div class="page-header">
+            <a href="/index/"><h3>Change form</h3></a>
+            <h1><a href="/edit_form/">{{form_name}}</a></h1>
+            <a href="/new_quest/"><h2>Generate question  <span class="glyphicon glyphicon-plus"></span></h2></a>
+
+        </div>
+
+        <div class="content container">
+            {% block content %}
+            {% endblock %}
+        </div>
+     </body>
+</html>

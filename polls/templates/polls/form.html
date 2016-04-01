@@ -1,0 +1,38 @@
+{% extends 'polls/base3.html' %}
+
+{% block content %}
+
+    {% if latest_question_list %}
+        {% if text_quest_list %}
+            {% for question in text_quest_list %}
+                <h1>
+                    {{ question.question_text }}
+                </h1>
+                {{ form.as_p }}
+            {% endfor %}
+        {% endif %}
+
+        {% if choice_quest_list %}
+            <ul>
+                {% for question in choice_quest_list %}
+                    <h1>
+                        {{ question.question_text }}
+                    </h1>
+                    {% for choice in question.choice_set.all %}
+                        <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+                        <label for="choice{{ forloop.counter }}">
+                            {{ choice.choice_text }}
+                        </label>
+                        <br>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+    {% else %}
+        <p>
+            No polls are available.
+        </p>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'polls/base4.html' %}
+
+{% block content %}
+
+    {% if form.errors %}
+        <p class="error">Sorry, that's not a valid question</p>
+    {% endif %}
+
+    <form action="/make_quest/" method="post">{% csrf_token %}
+        <label for="question">question:</label>
+        <input type="text" name="question" value="" id="question">
+        <h3>
+            If you would like this question to have multiple choice, add the
+            choices below. <br>
+            If you want manual text entry please leave them blank.
+        </h3>
+        <label for="choice1">answer 1:</label>
+        <input type="text" name="choice1" value="" id="choice1">
+        <br>
+        <label for="choice2">answer 2:</label>
+        <input type="text" name="choice2" value="" id="choice2">
+        <br>
+        <label for="choice3">answer 3:</label>
+        <input type="text" name="choice3" value="" id="choice3">
+        <br>
+        <br>
+        <input type="submit" value="submit question" />
+
+    </form>
+
+{% endblock %}

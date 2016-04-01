@@ -1,0 +1,22 @@
+{% extends 'polls/base.html' %}
+
+{% block content %}
+    {% if latest_webform_list %}
+        <ul>
+            {% for form in latest_webform_list %}
+                <li>
+                    <h1><a href="{% url 'webform_detail' pk=form.pk %}">{{ form.fname }}</a></h1>
+
+                    <i>
+                        {{  form.description  }}
+                    </i>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>
+            No webforms are available.
+        </p>
+    {% endif %}
+
+{% endblock %}
