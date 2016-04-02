@@ -5,7 +5,7 @@
         <ul>
             {% for form in forms %}
                 <li>
-                    <h1><a href="{% url 'form_detail' pk=form.pk %}">
+                    <h1><a href="{% url 'polls:form_detail' pk=form.pk %}">
                         {{ form.fname }}
                     </a></h1>
 
