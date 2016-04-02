@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.core.context_processors import csrf
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
-from .models import Nform, Choice, Question
+from .models import Nform, Choice, Question, Post
 from django.template import loader
 from django.utils import timezone
 from django.views import generic
@@ -12,11 +12,11 @@ from django.db import models
 from .form import PostForm
 
 def site_index(request):
-    latest_webform_list = Nform.objects.order_by('-published_date')
-    return render(request, 'polls/index.html', {'latest_webform_list': latest_webform_list})
+    forms = Nform.objects.order_by('-published_date')
+    return render_to_response('polls/index.html', {'forms': forms})
 
 
-def webform_detail(request, pk):
+def form_detail(request, pk):
     current_form = get_object_or_404(Nform, pk=pk)
     fame = current_form.fname
     latest_question_list = Question.objects.filter(for_form=fame).order_by('-pub_date')
