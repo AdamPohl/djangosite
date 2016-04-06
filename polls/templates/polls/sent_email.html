@@ -1,0 +1,10 @@
+{% extends 'polls/base5.html' %}
+
+{% block content %}
+    <h2>
+        {{ username }} you have sent a read only version of the webform:
+        <em>{{ current_form.fname }}</em> <br>
+        to the email address: <em>{{ to }}</em> <br>
+        I hope it was the right address. :)
+    </h2>
+{% endblock %}

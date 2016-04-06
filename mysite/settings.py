@@ -24,6 +24,8 @@ SECRET_KEY = '$dw-zf=oi##cgeo0yzdadyk-=oirj47a-s@7m*)_v)94dq044!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
 
 ALLOWED_HOSTS = []
 

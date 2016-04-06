@@ -1,0 +1,27 @@
+{% extends 'polls/base5.html' %}
+
+{% block content %}
+
+    {% if form.errors %}
+        <p class="error">Sorry, that's not a valid email address</p>
+    {% endif %}
+
+    <form action="{% url 'polls:send_email' pk=current_form.pk %}" method="post">{% csrf_token %}
+
+        <h2>
+            So {{ username }}, you would like to email a read-only copy of the
+            webform: <em>{{ current_form.fname }}</em> <br>
+            to someone. Please fill in the details below.
+        </h2>
+        <br>
+        <label for="Rname">Name of reciepent:</label>
+        <input type="text" name="Rname" value="" id="Rname">
+        <br> <br>
+        <label for="Remail">Reciepent's email:</label>
+        <input type="email" name="Remail" value="" id="Remail">
+        <br> <br>
+        <input type="submit" value="send email" />
+
+    </form>
+
+{% endblock %}
