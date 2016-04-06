@@ -17,7 +17,7 @@ urlpatterns = [
     url(r'^new_form/$', 'polls.views.new_form'),
     url(r'^make_form/$', 'polls.views.make_form'),
     url(r'^edit_form/$', 'polls.views.edit_form'),
-    url(r'^readonly/(?P<pk>\d+)/$', 'polls.views.read_only'),
+    url(r'^readonly/(?P<pk>\d+)/$', views.read_only, name='readonly'),
     url(r'^form/(?P<pk>\d+)/$', views.form_detail, name='form_detail'),
     url(r'^email_form/(?P<pk>\d+)/$', views.email_form, name='email_form'),
     url(r'^sent_email/(?P<pk>\d+)/$', views.send_email, name='send_email'),

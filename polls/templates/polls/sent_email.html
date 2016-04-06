@@ -6,5 +6,11 @@
         <em>{{ current_form.fname }}</em> <br>
         to the email address: <em>{{ to }}</em> <br>
         I hope it was the right address. :)
+        <br>
+        <br>
+        The link that you have sent will send them
+        <a href="{% url 'polls:readonly' pk=current_form.pk %}">
+            here.
+        </a>
     </h2>
 {% endblock %}
